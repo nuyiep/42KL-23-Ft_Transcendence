@@ -3,7 +3,6 @@ DC		=	docker compose -f
 YAML	=	docker-compose.yml
 RMRF	=	sudo rm -rf
 
-
 up:
 		$(DC) $(YAML) up -d
 
