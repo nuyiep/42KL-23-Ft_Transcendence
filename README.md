@@ -20,3 +20,8 @@ Backend: Python, Django
 ________
 ## Dependencies
 Docker, docker-compose
+
+________
+Run:
+chmod +x setup.sh
+./setup.sh
