@@ -22,6 +22,6 @@ ________
 Docker, docker-compose
 
 ________
-Run:
+## Run
 chmod +x setup.sh
 ./setup.sh
