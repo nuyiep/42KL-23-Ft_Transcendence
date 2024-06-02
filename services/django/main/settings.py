@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'user_management.apps.UserManagementConfig',
+	# 'user_management.apps.UserManagementConfig', # use this when there is custom configurations specified in the 'AppConfig' class
+	'user_management', # default behavior without custom configurations
 ]
 
 MIDDLEWARE = [

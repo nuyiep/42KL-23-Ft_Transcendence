@@ -4,6 +4,10 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.shortcuts import render
+from django.http import HttpResponse
+
+def defaultPage(request):
+	return render(request, 'home.html')
 
 def home(request):
 	return render(request, 'home.html')
