@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	# 'user_management.apps.UserManagementConfig', # use this when there is custom configurations specified in the 'AppConfig' class
 	'user_management', # default behavior without custom configurations
+	'rest_framework'
 ]
 
 MIDDLEWARE = [
