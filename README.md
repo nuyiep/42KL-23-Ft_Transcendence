@@ -25,3 +25,7 @@ ________
 ## Run
 * chmod +x setup.sh <br>
 * ./setup.sh
+
+________
+## API
+* http://127.0.0.1:8000/api/userprofiles/1
