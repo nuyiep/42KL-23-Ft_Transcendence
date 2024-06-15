@@ -4,3 +4,5 @@ django-cors-headers==4.3.1
 
 # Not specifying which version will download the latest version
 # Better to specify which version to avoid compatibility and unpredictability issues
+python-decouple==3.1
+psycopg2-binary==2.9.9

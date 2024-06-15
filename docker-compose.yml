@@ -2,7 +2,7 @@ services:
   django:
     build: ./services/django
     ports:
-      - 3000:3000
+      - 8000:8000
     networks:
       - backend_net
     # volumes:
@@ -13,18 +13,18 @@ services:
     restart: unless-stopped
 
   postgresql:
-    build: ./services/postgresql
-    ports:
-      - 8080:8080
+    image: postgres:15
+    # build: ./services/postgresql
     networks:
       - backend_net
-    # volumes:
+    volumes:
+      - postgres_vol:/var/lib/postgresql/data/
     env_file:
       - .env
     restart: unless-stopped
 
 volumes:
-  data:
+  postgres_vol:
 
 networks:
   backend_net:
