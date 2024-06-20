@@ -23,8 +23,28 @@ services:
       - .env
     restart: unless-stopped
 
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus_vol:/etc/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    restart: always
+
+  grafana:
+    image: grafana/grafana
+    ports:
+     - 3000:3000
+    volumes:
+      - grafana_vol:/var/lib/grafana
+    restart: unless-stopped
+
 volumes:
   postgres_vol:
+  grafana_vol:
+  prometheus_vol:
 
 networks:
   backend_net:
