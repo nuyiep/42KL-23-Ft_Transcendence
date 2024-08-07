@@ -13,8 +13,8 @@ var lastTime = performance.now();
 function renderLoop()
 {
 	loop = requestAnimationFrame(() => renderLoop());
-	var timestamp = performance.now();
-	var frameTime = (timestamp - lastTime) / 1000;
+	const timestamp = performance.now();
+	const frameTime = (timestamp - lastTime) / 1000;
 	lastTime = timestamp;
 	// console.log("ms:" + frameTime * 1000);
 	// console.log("fps:" + 1 / frameTime);
