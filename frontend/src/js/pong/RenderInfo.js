@@ -33,10 +33,18 @@ export class RenderInfo
 		this.ctx.strokeStyle = "white";
 		this.ctx.fillStyle = "white";
 
+		// using 3.64 because that's the screen width scale i based stuff on
+		const getScaledWidth = (width) =>
+		{
+			const magicalScaleNumber = 3.64;
+			return this.windowScale.x * width / magicalScaleNumber;
+		}
+
 		// border
 		// TODO: make the linewidth scale with the screen properly
 		this.ctx.save();
-		this.ctx.lineWidth = 5;
+		this.ctx.lineWidth = getScaledWidth(5);
+		// this.ctx.lineWidth = 5;
 		// calculations to make position account for scaling
 		const halfWidth = this.ctx.lineWidth / 2;
 		const halfWidthX = halfWidth / this.windowScale.x;
@@ -48,26 +56,27 @@ export class RenderInfo
 			this.gameSize.y + halfWidthY * 2
 		);
 		// center line
-		this.ctx.setLineDash([10, 10]);
+		const lineDashSpacing = getScaledWidth(10);
+		this.ctx.setLineDash([lineDashSpacing, lineDashSpacing]);
 		this.drawLineScaled(
 			this.gameSize.x / 2, 0,
 			this.gameSize.x / 2, this.gameSize.y
 		);
 		this.ctx.stroke();
 		// score
-		this.ctx.font = "64px monospace";
+		this.ctx.font = `${getScaledWidth(64)}px monospace`;
 		this.ctx.textAlign = "right";
 		const scoreTextXOffset = 32;
 		this.fillTextScaled(
 			this.gameScore[0],
 			(this.gameSize.x / 2) - scoreTextXOffset,
-			this.gameSize.y * 0.10
+			this.gameSize.y * 0.15
 		);
 		this.ctx.textAlign = "left";
 		this.fillTextScaled(
 			this.gameScore[1],
 			(this.gameSize.x / 2) + scoreTextXOffset,
-			this.gameSize.y * 0.10
+			this.gameSize.y * 0.15
 		);
 		this.ctx.stroke();
 		this.ctx.restore();

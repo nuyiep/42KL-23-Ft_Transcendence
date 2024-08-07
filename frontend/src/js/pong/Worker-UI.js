@@ -20,7 +20,7 @@ function renderLoop()
 	// console.log("fps:" + 1 / frameTime);
 	debugData.addFrameTime(frameTime * 1000);
 	debugData.addFPS(1 / frameTime);
-	postMessage("\n\nrender ms:" + debugData.getAvgFrameTimes() + "\nrender fps:" + debugData.getAvgFPS());
+	postMessage("\n\nrender ms:" + debugData.getAvgFrameTimes() + "\nrender fps:" + debugData.getAvgFPS() + "\nresolution:" + renderInfo.windowSize.x + "x" + renderInfo.windowSize.y + "\nresolution scale:" + renderInfo.windowScale.x + ":" + renderInfo.windowScale.y);
 	renderInfo.drawLoop(frameTime);
 }
 
