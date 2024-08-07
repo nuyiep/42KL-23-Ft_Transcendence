@@ -53,6 +53,7 @@ export class RenderInfo
 			this.gameSize.x / 2, 0,
 			this.gameSize.x / 2, this.gameSize.y
 		);
+		this.ctx.stroke();
 		// score
 		this.ctx.font = "64px monospace";
 		this.ctx.textAlign = "right";
