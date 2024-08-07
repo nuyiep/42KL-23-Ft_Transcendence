@@ -54,8 +54,20 @@ export class RenderInfo
 			this.gameSize.x / 2, this.gameSize.y
 		);
 		// score
-		this.ctx.fillText("" + this.gameScore[0], this.gameSize.x / 2 - 100, 100);
-		this.ctx.fillText("" + this.gameScore[1], this.gameSize.x / 2 + 100, 100);
+		this.ctx.font = "64px monospace";
+		this.ctx.textAlign = "right";
+		const scoreTextXOffset = 32;
+		this.fillTextScaled(
+			this.gameScore[0],
+			(this.gameSize.x / 2) - scoreTextXOffset,
+			this.gameSize.y * 0.10
+		);
+		this.ctx.textAlign = "left";
+		this.fillTextScaled(
+			this.gameScore[1],
+			(this.gameSize.x / 2) + scoreTextXOffset,
+			this.gameSize.y * 0.10
+		);
 		this.ctx.stroke();
 		this.ctx.restore();
 
@@ -154,6 +166,17 @@ export class RenderInfo
 			y * this.windowScale.y + this.windowPadding.y,
 			width * this.windowScale.x,
 			height * this.windowScale.y
+		);
+	}
+
+	// set the font type through "this.ctx.font"
+	// make sure to use "this.ctz.stroke()" before resetting the font
+	fillTextScaled(text, x, y)
+	{
+		this.ctx.fillText(
+			text,
+			x * this.windowScale.x + this.windowPadding.x,
+			y * this.windowScale.y + this.windowPadding.y
 		);
 	}
 
